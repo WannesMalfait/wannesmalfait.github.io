@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: <a href='#social'>Contact info</a>. <a href='cv'>CV </a>.
+subtitle: <a href='#social'>Contact info</a>. <a href='/cv/'>CV </a>.
 
 profile:
   align: right
