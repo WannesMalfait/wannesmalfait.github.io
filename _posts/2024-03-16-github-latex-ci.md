@@ -12,7 +12,7 @@ tags: GitHub LaTeX programming
 
 Whenever I write a document in LaTeX, I set up a (local) git repository for version control. This lets me make big changes without having to worry about permanently deleting things that I might need in the future. By looking at the commit log, I can get a quick overview of what I was working on, after revisiting the document after some time. Because LaTeX generates a lot of extra files on compilation, I have a `.gitignore` file set up to essentially ignore everything that isn't a `.bib` or a `.tex` file. Importantly, I ignore `.pdf` files. There are a couple of reasons for this:
 
-1. As a general rule of thumb, only source files should be included in a git repository. The compilation outputs can be recreated from the source file, and do not carry extra information.
+1. As a general rule of thumb, only source files should be included in a git repository. The compilation outputs can be recreated from the source files, and do not carry extra information.
 1. A `.pdf` file is relatively big. It can easily be 10 times the size of the source file.
 1. The binary data of the output `.pdf` file can change quite drastically, even after making small changes to `.tex` source. This makes it quite useless to use something like `git diff` directly on the PDF. Instead, a tool like [latexdiff](https://ctan.org/pkg/latexdiff) should be used.
 1. I often only compile a small part of the whole document, to speed up compilation time. The output PDF's do not reflect the “actual” state of the document, and shouldn't be picked up by the version control.
