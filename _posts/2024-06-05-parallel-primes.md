@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Computing prime numbers in parallel
-date: 2024-03-16
+date: 2024-06-05
 description: Coming up with an algorithm to compute primes in parallel
 tags: programming rust
 ---
@@ -22,7 +22,9 @@ Let us start with perhaps the most simple implementation:
 
 ```rust
 fn compute_primes(n: usize) -> Vec<usize> {
-    (2..=n).filter(|&i| (2..i).all(|divisor| i % divisor != 0)).collect()
+    (2..=n)
+        .filter(|&i| (2..i).all(|divisor| i % divisor != 0))
+        .collect()
 }
 ```
 
@@ -86,7 +88,9 @@ a contradiction. So, it suffices to check for divisors less than the square root
 ```rust
 fn is_prime(n: &usize) -> bool {
     // Note that i <= sqrt(n) if and only if i^2 <= n.
-    (2..*n).filter(|&i| i.saturating_mul(i) <= *n).all(|divisor| n % divisor != 0)
+    (2..*n)
+        .take_while(|&i| i.saturating_mul(i) <= *n)
+        .all(|divisor| n % divisor != 0)
 }
 ```
 
@@ -97,7 +101,10 @@ The next observation is that we only need to check if the number is divisible by
 ```rust
 // `primes` should contain at least all primes less than sqrt(n).
 fn is_prime(n: usize, primes: &[usize]) -> bool {
-    primes.iter().filter(|&i| i.saturating_mul(*i) <= n).all(|prime| n % prime != 0)
+    primes
+        .iter()
+        .take_while(|&i| i.saturating_mul(*i) <= n)
+        .all(|prime| n % prime != 0)
 }
 
 fn compute_primes(n: usize) -> Vec<usize> {
@@ -128,12 +135,15 @@ The main issue is that our main loop has gone from a parallel loop to a sequenti
 The key insight is that we don't actually need to know all the primes up to `n` to compute `is_prime(n)`. As we already observed, we only need to know the primes up to \\(\sqrt{n}\\). For example, if we already know the primes up to 100, we can safely compute all the primes up to \\(100^2 = 10000\\) using the list of primes up to 100. This gives the final algorithm:
 
 ```rust
-use std::cmp::min;
 use rayon::prelude::*;
+use std::cmp::min;
 
 // `primes` should contain at least all primes less than sqrt(n).
 fn is_prime(n: usize, primes: &[usize]) -> bool {
-    primes.iter().filter(|&i| i.saturating_mul(*i) <= n).all(|prime| n % prime != 0)
+    primes
+        .iter()
+        .take_while(|&i| i.saturating_mul(*i) <= n)
+        .all(|prime| n % prime != 0)
 }
 
 fn compute_primes(n: usize) -> Vec<usize> {
@@ -163,8 +173,8 @@ fn compute_primes(n: usize) -> Vec<usize> {
             .into_par_iter()
             .filter(|&i| is_prime(i, &primes))
             .collect::<Vec<usize>>();
-        primes.extend_from_slice(&new_primes); 
-   }
+        primes.extend_from_slice(&new_primes);
+    }
     primes
 }
 ```
