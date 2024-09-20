@@ -81,6 +81,20 @@
                 "Machine Learning",
                 "Functional Analysis"
             ]
+        },
+        {
+            "institution": "Vrije Universiteit Brussel",
+            "url": "https://www.vub.be/",
+            "area": "Mathematics",
+            "studyType": "Master",
+            "startDate": "2022",
+            "endDate": "2024",
+            "score": "95%",
+            "courses": [
+                "C*-algebras",
+                "Representation Tneory",
+                "Functional Analysis"
+            ]
         }
     ],
     "awards": [
