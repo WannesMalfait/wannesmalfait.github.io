@@ -2,12 +2,12 @@
     "$schema": "https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/schema.json",
     "basics": {
         "name": "Wannes Malfait",
-        "label": "Mathematics student",
+        "label": "Mathematics PhD student",
         "image": "",
         "email": "wannes.malfait@vub.be",
         "phone": "",
         "url": "https://wannesmalfait.github.io",
-        "summary": "5th year mathematics student passionate about mathematics, programming and teaching. Teaching and leadership experience at CLIP Taalvakanties. Proficient in Rust, Python and C++. Open-source contributor to Blender.",
+        "summary": "PhD student passionate about mathematics, programming and teaching. Teaching and leadership experience at CLIP Taalvakanties. Proficient in Rust, Python and C++. Open-source contributor to Blender.",
         "location": {},
         "profiles": [
             {
@@ -35,6 +35,7 @@
             "description": "Vrije Universiteit Brussel",
             "position": "Tutor Mathematics",
             "startDate": "2022",
+            "endDate": "2024",
             "summary": "Teaching a prepatory course in mathematics to first-year students in physics, engineering and mathematics at the start of the year, as well as weekly Q&A sessions.",
             "highlights": []
         },
@@ -45,6 +46,15 @@
             "startDate": "2019",
             "endDate": "2021",
             "summary": "Private tutoring to highschool and university students for math and physics."
+        },
+        {
+            "position": "PhD in Mathematics",
+            "name": "VUB",
+            "url": "https://www.vub.be/",
+            "location": "",
+            "description": "Vrije Universiteit Brussel",
+            "startDate": "2024-10",
+            "summary": "Research on cluster algebras, positive representations and quantum groups."
         }
     ],
     "volunteer": [
