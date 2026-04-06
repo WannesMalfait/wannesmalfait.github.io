@@ -1,11 +1,13 @@
-#document("index.html")[
+#document("index.html", title: "Wannes Malfait")[
   #title[*Wannes* Malfait]
 
   #link(<links>)[Contact info and relevant links]
   #sym.dot
-  #link(<blog>)[Go to blog]
+  #link(<where>)[Where to find me]
   #sym.dot
   #link(<news>)[News]
+
+  #link(<blog>)[Go to blog]
 
 
   #image("./assets/prof_pic.png", width: 30%, alt: "A simple sketch of myself")
@@ -22,22 +24,30 @@
   - *Reading.* My favorite genres are definitely fantasy and science fiction. Some of my favorite series include: The Wheel of Time, The Stormlight Archive, Dune, The Farseer trilogy, The Ranger's Apprentice and Ender's Game.
   - *Ultimate Frisbee*. My first introduction to this sport was in high school, where we played with a few friends after school. I now play in a small club in Brussels. The positive attitude and spirit of the players is something you don't find in many other sports.
 
-  = Where to find me
+  = Where to find me <where>
 
-  Most of the time you will find me at the VUB. Below you can find an (incomplete) list of days when I am not there.
+  Most of the time you will find me at the VUB:
+
+  Vrije Universiteit Brussel\
+  Faculty of Sciences\
+  Department of Mathematics and Data Science\
+  Pleinlaan 2, B-1050\
+  Brussels, Belgium\
+
+  Below you can find an (incomplete) list of days when I am not there.
 
   #let date-format = "[day]/[month]/[year]"
   #let conf-link(linkstr) = [#sym.dot #link(linkstr)[link] #sym.dot]
   == Upcoming
-  - *VUB-Leeds Algebra School* #conf-link("https://vubleedstopyb.github.io/summer-school/index.html") (#datetime(day: 8, month: 6, year: 2026).display(date-format) - #datetime(day: 12, month: 6, year: 2026).display(date-format)) Participant
-  - *ITMAIA 2026, Leeds* #conf-link("https://sites.google.com/view/itmaia2026/home") (#datetime(day: 15, month: 04, year: 2026).display(date-format) - #datetime(day: 17, month: 04, year: 2026).display(date-format)) Talk: "Generating a C\*-algebra"
+  - *VUB-Leeds Algebra School* #conf-link("https://vubleedstopyb.github.io/summer-school/index.html") (#datetime(day: 8, month: 6, year: 2026).display(date-format) - #datetime(day: 12, month: 6, year: 2026).display(date-format)) --- Participant
+  - *ITMAIA 2026, Leeds* #conf-link("https://sites.google.com/view/itmaia2026/home") (#datetime(day: 15, month: 04, year: 2026).display(date-format) - #datetime(day: 17, month: 04, year: 2026).display(date-format)) --- Talk: "Generating a C\*-algebra"
   == Past
-  - *MPI-MIS Leipzig* #conf-link("https://www.mis.mpg.de/geometry-groups-dynamics") (#datetime(day: 12, month: 1, year: 2026).display(date-format) - #datetime(day: 16, month: 1, year: 2026).display(date-format)) Research visit and talk in Geometry seminar
-  - *CARE 2025, Lyon* #conf-link("https://sites.google.com/uniroma1.it/caremath/home-page") (#datetime(day: 27, month: 10, year: 2025).display(date-format) - #datetime(day: 31, month: 10, year: 2025).display(date-format)) Talk: "Cluster algebras from the perspective of operator algebras"
-  - *CAMP in the Lakes, Ambleside* #conf-link("https://sites.google.com/view/campinthelakes") (#datetime(day: 14, month: 7, year: 2025).display(date-format) - #datetime(day: 23, month: 7, year: 2025).display(date-format)) Participant
-  - *Cluster Geometry, Nordfjordeid* #conf-link("https://www.mn.uio.no/math/english/research/groups/algebra/events/conferences/nordfjordeid2025/") (#datetime(day: 9, month: 6, year: 2025).display(date-format) - #datetime(day: 13, month: 6, year: 2025).display(date-format)) Participant
-  - *Algebra Days 2025, Caen* #conf-link("https://mdpressland.github.io/events/AlgebraDays25.html") (#datetime(day: 18, month: 3, year: 2025).display(date-format) - #datetime(day: 19, month: 3, year: 2025).display(date-format)) Participant
-  - *Higher structures in Noncommutative Geometry and Quantum Algebra, Lille* #conf-link("https://www.mathconf.org/hsngqa2024") (#datetime(day: 8, month: 10, year: 2024).display(date-format) - #datetime(day: 11, month: 10, year: 2024).display(date-format)) Participant
+  - *MPI-MIS Leipzig* #conf-link("https://www.mis.mpg.de/geometry-groups-dynamics") (#datetime(day: 12, month: 1, year: 2026).display(date-format) - #datetime(day: 16, month: 1, year: 2026).display(date-format)) --- Research visit and talk in Geometry seminar
+  - *CARE 2025, Lyon* #conf-link("https://sites.google.com/uniroma1.it/caremath/home-page") (#datetime(day: 27, month: 10, year: 2025).display(date-format) - #datetime(day: 31, month: 10, year: 2025).display(date-format)) --- Talk: "Cluster algebras from the perspective of operator algebras"
+  - *CAMP in the Lakes, Ambleside* #conf-link("https://sites.google.com/view/campinthelakes") (#datetime(day: 14, month: 7, year: 2025).display(date-format) - #datetime(day: 23, month: 7, year: 2025).display(date-format)) --- Participant
+  - *Cluster Geometry, Nordfjordeid* #conf-link("https://www.mn.uio.no/math/english/research/groups/algebra/events/conferences/nordfjordeid2025/") (#datetime(day: 9, month: 6, year: 2025).display(date-format) - #datetime(day: 13, month: 6, year: 2025).display(date-format)) --- Participant
+  - *Algebra Days 2025, Caen* #conf-link("https://mdpressland.github.io/events/AlgebraDays25.html") (#datetime(day: 18, month: 3, year: 2025).display(date-format) - #datetime(day: 19, month: 3, year: 2025).display(date-format)) --- Participant
+  - *Higher structures in Noncommutative Geometry and Quantum Algebra, Lille* #conf-link("https://www.mathconf.org/hsngqa2024") (#datetime(day: 8, month: 10, year: 2024).display(date-format) - #datetime(day: 11, month: 10, year: 2024).display(date-format)) --- Participant
 
   = News <news>
   - *November 1, 2024*: Started my PhD
@@ -45,7 +55,8 @@
   - *Feb 17, 2024*: I created a website
 
   = Contact info <links>
-  - #link("mailto:wannes.malfait@vub.be")[E-mail]
+  An incomplete list of relevant links.
+  - #emoji.email #link("mailto:wannes.malfait@vub.be")[E-mail]
   - #link("https://orcid.org/0009-0009-2626-7356")[ORCID]
   - #link("https://github.com/wannesmalfait")[GitHub]
   - #html.elem("a", attrs: (href: "https://mathstodon.xyz/@WannesMalfait", rel: "me"))[Mathstodon]
@@ -57,12 +68,15 @@
 
 ]<about>
 
-#document("news/finished_thesis.html")[
+#document("news/finished_thesis.html", title: "Finished my thesis")[
+  #title()
+  #link(<news>)[Back to about page]
+
   #include "./_news/finished_thesis.typ"
 ]<news:finished_thesis>
 
-#document("blog.html")[
-  #title[Blog]
+#document("blog.html", title: "Blog")[
+  #title()
 
   #link(<about>)[Back to about page]
 
@@ -72,13 +86,15 @@
 
 ]<blog>
 
-#document("/blog/2024/parallel-primes.html")[
+#document("/blog/2024/parallel-primes.html", title: "Computing prime numbers in parallel")[
+  #title()
   - #link(<about>)[Back to about page]
   - #link(<blog>)[Back to blog]
   #include "./_posts/2024-06-05-parallel-primes.typ"
 ]<blog:parallel-primes>
 
-#document("/blog/2024/github-latex-ci.html")[
+#document("/blog/2024/github-latex-ci.html", title: "LaTeX compilation with GitHub actions")[
+  #title()
   - #link(<about>)[Back to about page]
   - #link(<blog>)[Back to blog]
   #include "./_posts/2024-03-16-github-latex-ci.typ"
