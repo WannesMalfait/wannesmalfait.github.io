@@ -11,7 +11,7 @@
   #image("./assets/prof_pic.png", width: 30%, alt: "A simple sketch of myself")
   = About me
 
-  Hi! I'm Wanness, a PhD student in mathematics at the VUB. Besides mathematics, I'm interested in music, chess, programming, reading, ultimate frisbee, and more. You can navigate to relevant pages using the links at the top of the website.
+  Hi! I'm Wannes, a PhD student in mathematics at the VUB. Besides mathematics, I'm interested in music, chess, programming, reading, ultimate frisbee, and more. You can navigate to relevant pages using the links at the top of the website.
 
   Let me say a bit more about each of the interests listed above:
 
