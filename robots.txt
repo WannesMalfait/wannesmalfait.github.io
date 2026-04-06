@@ -1,4 +1,0 @@
-User-agent: *
-Disallow:
-
-Sitemap: https://wannesmalfait.github.io/sitemap.xml
