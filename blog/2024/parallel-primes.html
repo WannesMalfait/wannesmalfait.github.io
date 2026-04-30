@@ -5,6 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Computing prime numbers in parallel</title>
     <style>
+      /* Alignment */
+      mtable.right-align mtd,
+      mtable mtd.right-align,
+      mtable.left-align mtd.right-align,
+      mtable.aligned mtd:nth-child(odd) {
+        text-align: -webkit-right;
+      }
+      mtable.cases mtd,
+      mtable.left-align mtd,
+      mtable mtd.left-align,
+      mtable.aligned mtd:nth-child(even),
+      math:is(:not([display])) > mtable.multiline-equation mtd {
+        text-align: -webkit-left;
+      }
+      mtable.cases mtd,
+      mtable.aligned mtd,
+      mtable mtd.flushed,
+      mtable mtd.left-flush {
+        padding-left: 0;
+      }
+      mtable.cases mtd,
+      mtable.aligned mtd,
+      mtable mtd.flushed,
+      mtable mtd.right-flush {
+        padding-right: 0;
+      }
+      
       /* Tables */
       mtable {
         math-style: inherit;
@@ -22,11 +49,8 @@
         math-shift: inherit;
         padding: 0;
       }
-      mtable.multiline-equation.aligned-equation mtd:nth-child(odd) {
-        text-align: -webkit-right;
-      }
-      mtable.multiline-equation.aligned-equation mtd:nth-child(even) {
-        text-align: -webkit-left;
+      math > mtable.multiline-equation mtr:not(:last-child) mtd {
+        padding-bottom: 0.5em;
       }
       
       /* Fractions */
@@ -35,20 +59,24 @@
         margin-inline: 0.1em;
       }
       
-      /* Other rules for scriptlevel, displaystyle and math-shift */
-      mroot {
-        math-shift: inherit;
+      /* Accents */
+      mover[accent="true" i] > :first-child {
+        font-feature-settings: "dtls";
       }
-      mroot > :first-child,
+      mover.dotted[accent="true" i] > :first-child {
+        font-feature-settings: "dtls" 0;
+      }
+      
+      /* Other rules for scriptlevel, displaystyle and math-shift */
       munder > :nth-child(2),
-      munderover > :nth-child(2),
-      munder[accentunder="true" i] > :first-child {
+      munderover > :nth-child(2) {
         math-shift: compact
       }
-      munder[accentunder="true" i] > :nth-child(2),
-      mover[accent="true" i] > :nth-child(2) {
+      munder[accentunder="true" i] > :not(:first-child),
+      mover[accent="true" i] > :not(:first-child) {
         math-depth: inherit;
         math-style: inherit;
+        math-shift: inherit;
       }
     </style>
   </head>
