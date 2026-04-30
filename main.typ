@@ -10,7 +10,7 @@
   #link(<blog>)[Go to blog]
 
 
-  #image("./assets/prof_pic.png", width: 30%, alt: "A simple sketch of myself")
+  #image("./assets/prof_pic.png", width: 30%, height: 30%, alt: "A simple sketch of myself")
   = About me
 
   Hi! I'm Wannes, a PhD student in mathematics at the VUB. Besides mathematics, I'm interested in music, chess, programming, reading, ultimate frisbee, and more. You can navigate to relevant pages using the links at the top of the website.
@@ -40,8 +40,8 @@
   #let conf-link(linkstr) = [#sym.dot #link(linkstr)[link] #sym.dot]
   == Upcoming
   - *VUB-Leeds Algebra School* #conf-link("https://vubleedstopyb.github.io/summer-school/index.html") (#datetime(day: 8, month: 6, year: 2026).display(date-format) - #datetime(day: 12, month: 6, year: 2026).display(date-format)) --- Participant
-  - *ITMAIA 2026, Leeds* #conf-link("https://sites.google.com/view/itmaia2026/home") (#datetime(day: 15, month: 04, year: 2026).display(date-format) - #datetime(day: 17, month: 04, year: 2026).display(date-format)) --- Talk: "Generating a C\*-algebra"
   == Past
+  - *ITMAIA 2026, Leeds* #conf-link("https://sites.google.com/view/itmaia2026/home") (#datetime(day: 15, month: 04, year: 2026).display(date-format) - #datetime(day: 17, month: 04, year: 2026).display(date-format)) --- Talk: "Generating a C\*-algebra"
   - *MPI-MIS Leipzig* #conf-link("https://www.mis.mpg.de/geometry-groups-dynamics") (#datetime(day: 12, month: 1, year: 2026).display(date-format) - #datetime(day: 16, month: 1, year: 2026).display(date-format)) --- Research visit and talk in Geometry seminar
   - *CARE 2025, Lyon* #conf-link("https://sites.google.com/uniroma1.it/caremath/home-page") (#datetime(day: 27, month: 10, year: 2025).display(date-format) - #datetime(day: 31, month: 10, year: 2025).display(date-format)) --- Talk: "Cluster algebras from the perspective of operator algebras"
   - *CAMP in the Lakes, Ambleside* #conf-link("https://sites.google.com/view/campinthelakes") (#datetime(day: 14, month: 7, year: 2025).display(date-format) - #datetime(day: 23, month: 7, year: 2025).display(date-format)) --- Participant
