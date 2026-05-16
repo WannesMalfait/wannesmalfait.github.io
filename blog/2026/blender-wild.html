@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Linking blender with wild</title>
+    <style>
+      /* Alignment */
+      mtable.right-align mtd,
+      mtable mtd.right-align,
+      mtable.left-align mtd.right-align,
+      mtable.aligned mtd:nth-child(odd) {
+        text-align: -webkit-right;
+      }
+      mtable.cases mtd,
+      mtable.left-align mtd,
+      mtable mtd.left-align,
+      mtable.aligned mtd:nth-child(even),
+      math:is(:not([display])) > mtable.multiline-equation mtd {
+        text-align: -webkit-left;
+      }
+      mtable.cases mtd,
+      mtable.aligned mtd,
+      mtable mtd.flushed,
+      mtable mtd.left-flush {
+        padding-left: 0;
+      }
+      mtable.cases mtd,
+      mtable.aligned mtd,
+      mtable mtd.flushed,
+      mtable mtd.right-flush {
+        padding-right: 0;
+      }
+      
+      /* Tables */
+      mtable {
+        math-style: inherit;
+      }
+      mtd {
+        math-depth: auto-add;
+        math-style: compact;
+        math-shift: compact;
+      }
+      
+      /* Equations */
+      mtable.multiline-equation mtd {
+        math-depth: inherit;
+        math-style: inherit;
+        math-shift: inherit;
+        padding: 0;
+      }
+      math > mtable.multiline-equation mtr:not(:last-child) mtd {
+        padding-bottom: 0.5em;
+      }
+      
+      /* Fractions */
+      mfrac {
+        padding-inline: 0;
+        margin-inline: 0.1em;
+      }
+      
+      /* Accents */
+      mover[accent="true" i] > :first-child {
+        font-feature-settings: "dtls";
+      }
+      mover.dotted[accent="true" i] > :first-child {
+        font-feature-settings: "dtls" 0;
+      }
+      
+      /* Other rules for scriptlevel, displaystyle and math-shift */
+      munder > :nth-child(2),
+      munderover > :nth-child(2) {
+        math-shift: compact
+      }
+      munder[accentunder="true" i] > :not(:first-child),
+      mover[accent="true" i] > :not(:first-child) {
+        math-depth: inherit;
+        math-style: inherit;
+        math-shift: inherit;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Linking blender with wild</h1>
+    <ul>
+      <li><a href="../../index.html">Back to about page</a></li>
+      <li><a href="../../blog.html">Back to blog</a></li>
+    </ul>
+    <h3>What?</h3>
+    <p>When compiling blender, one of the slowest steps on rebuilds is the linking. I had already set up my blender builds to use the <a href="https://github.com/rui314/mold">mold linker</a> which is much faster than the default. Blender has some CMake rules to make this relatively easy to do. Having heard about the wild linker, which seems to be even faster, I set out to get blender compiling with wild as an experiment.</p>
+    <h3>How?</h3>
+    <p>I found the following way of getting it to work, but in the future easier options might be available. (These are instructions for linux.)</p>
+    <ol>
+      <li>Set up a build with clang as the compiler. Some version of <code>CC=/usr/bin/clang CXX=/usr/bin/clang++ make ninja &lt;otherflags></code> should work. Cancel the build immediately once the configuring is done, we still need to change the settings.</li>
+      <li>Go the build folder and open <code>CMakeCache.txt</code> to edit the build configuration. Enable mold (<code>WITH_LINKER_MOLD=ON</code>) and then change the path to point to the wild binary instead (<code>MOLD_BIN=path/to/wild</code>).</li>
+      <li>Change any other settings that you want.</li>
+      <li>Starting a build now (with e.g. <code>ninja install</code>) should link the binary with wild. You can verify this using, for example, <code>readelf --string-dump .comment ./bin/blender</code>.</li>
+    </ol>
+    <p>At the moment this prints some warnings, but those should be gone by the next version of wild (0.9). The final binary works without problems.</p>
+    <h3>Is it actually faster?</h3>
+    <p>I then used the <a href="https://github.com/wild-linker/wild/blob/main/BENCHMARKING.md">benchmarking documentation for wild</a> to test if it was actually faster than mold.</p>
+    <pre><code>WILD_SAVE_BASE=/tmp/wild/blender_debug_lite ninja install
+hyperfine --warmup 2 '/tmp/wild/blender_debug_lite/2/run-with ld' '/tmp/wild/blender_debug_lite/2/run-with mold' '/tmp/wild/blender_debug_lite/2/run-with wild'
+Benchmark 1: /tmp/wild/blender_debug_lite/2/run-with ld
+  Time (mean ± σ):     10.278 s ±  0.084 s    [User: 8.724 s, System: 1.525 s]
+  Range (min … max):   10.184 s … 10.435 s    10 runs
+
+Benchmark 2: /tmp/wild/blender_debug_lite/2/run-with mold
+  Time (mean ± σ):     639.5 ms ±   4.8 ms    [User: 5.6 ms, System: 2.2 ms]
+  Range (min … max):   630.5 ms … 645.4 ms    10 runs
+
+Benchmark 3: /tmp/wild/blender_debug_lite/2/run-with wild
+  Time (mean ± σ):     392.6 ms ±   8.2 ms    [User: 1.8 ms, System: 1.3 ms]
+  Range (min … max):   383.8 ms … 409.8 ms    10 runs
+
+Summary
+  /tmp/wild/blender_debug_lite/2/run-with wild ran
+    1.63 ± 0.04 times faster than /tmp/wild/blender_debug_lite/2/run-with mold
+   26.18 ± 0.59 times faster than /tmp/wild/blender_debug_lite/2/run-with ld</code></pre>
+    <p>Since it is indeed (a bit) faster, I’ve decided to switch over to wild. (If you’re still using <code>ld</code> then you will save a lot of time by switching.)</p>
+  </body>
+</html>
