@@ -10,7 +10,7 @@
   #link(<blog>)[Go to blog]
 
 
-  #image("./assets/prof_pic.png", width: 30%, height: 30%, alt: "A simple sketch of myself")
+  #image("./assets/prof_pic.png", width: 20%, height: 20%, alt: "A simple sketch of myself")
   = About me
 
   Hi! I'm Wannes, a PhD student in mathematics at the VUB. Besides mathematics, I'm interested in music, chess, programming, reading, ultimate frisbee, and more. You can navigate to relevant pages using the links at the top of the website.
