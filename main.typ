@@ -81,10 +81,18 @@
   #link(<about>)[Back to about page]
 
   = Latest posts
+  - *May 16, 2026*: #link(<blog:blender-wild>)[Linking blender with wild]
   - *Jun 05, 2024*: #link(<blog:parallel-primes>)[Computing prime numbers in parallel]
   - *Mar 16, 2024*: #link(<blog:github-latex-ci>)[LaTeX compilation with GitHub actions]
 
 ]<blog>
+
+#document("/blog/2026/blender-wild.html", title: "Linking blender with wild")[
+  #title()
+  - #link(<about>)[Back to about page]
+  - #link(<blog>)[Back to blog]
+  #include "./_posts/2026-05-16-blender-wild.typ"
+]<blog:blender-wild>
 
 #document("/blog/2024/parallel-primes.html", title: "Computing prime numbers in parallel")[
   #title()
