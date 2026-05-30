@@ -10,7 +10,7 @@
   #link(<blog>)[Go to blog]
 
 
-  #image("./assets/prof_pic.png", width: 20%, height: 20%, alt: "A simple sketch of myself")
+  #image("./assets/prof_pic.png", alt: "A simple sketch of myself")
   = About me
 
   Hi! I'm Wannes, a PhD student in mathematics at the VUB. Besides mathematics, I'm interested in music, chess, programming, reading, ultimate frisbee, and more. You can navigate to relevant pages using the links at the top of the website.
@@ -39,6 +39,7 @@
   #let date-format = "[day]/[month]/[year]"
   #let conf-link(linkstr) = [#sym.dot #link(linkstr)[link] #sym.dot]
   == Upcoming
+  - *Mathematics for Industry 2026* #conf-link("https://be-maths-in.be/mfi26/") (#datetime(day: 7, month: 9, year: 2026).display(date-format) - #datetime(day: 11, month: 9, year: 2026).display(date-format)) --- Participant
   - *VUB-Leeds Algebra School* #conf-link("https://vubleedstopyb.github.io/summer-school/index.html") (#datetime(day: 8, month: 6, year: 2026).display(date-format) - #datetime(day: 12, month: 6, year: 2026).display(date-format)) --- Participant
   == Past
   - *ITMAIA 2026, Leeds* #conf-link("https://sites.google.com/view/itmaia2026/home") (#datetime(day: 15, month: 04, year: 2026).display(date-format) - #datetime(day: 17, month: 04, year: 2026).display(date-format)) --- Talk: "Generating a C\*-algebra"
