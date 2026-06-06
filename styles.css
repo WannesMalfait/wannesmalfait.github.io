@@ -1,0 +1,65 @@
+a {
+  color: unset;
+  cursor: pointer;
+  text-decoration: dashed;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+body {
+  margin: 0;
+}
+
+article {
+  /* text-align: justify; */
+  padding: 1rem 2rem;
+  font-weight: 350;
+  line-height: 1.4;
+  margin: auto;
+  overflow-x: hidden;
+}
+
+h2 {
+  margin-top: 0;
+}
+h1,
+h2 {
+  font-weight: 450;
+}
+
+img {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  border-radius: 10%;
+}
+
+nav {
+  padding-left: 1rem;
+  padding-top: 1rem;
+  padding-bottom: 0.5rem;
+  font-size: 0.9rem;
+  background-color: color-mix(in oklab, deeppink 10%, transparent);
+}
+
+nav > ul {
+  list-style: none;
+}
+
+@media screen and (min-width: 45rem) {
+  /* Wide page */
+
+  article {
+    width: calc(min(40rem + 30vw, 100vw));
+  }
+}
+
+@media screen and not (min-width: 45rem) {
+  /* Wide page */
+
+  article {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+}
