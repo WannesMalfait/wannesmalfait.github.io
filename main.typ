@@ -45,8 +45,8 @@
     #let conf-link(linkstr) = [#sym.dot #link(linkstr)[link] #sym.dot]
     == Upcoming
     - *Mathematics for Industry 2026* #conf-link("https://be-maths-in.be/mfi26/") (#datetime(day: 7, month: 9, year: 2026).display(date-format) - #datetime(day: 11, month: 9, year: 2026).display(date-format)) --- Participant
-    - *VUB-Leeds Algebra School* #conf-link("https://vubleedstopyb.github.io/summer-school/index.html") (#datetime(day: 8, month: 6, year: 2026).display(date-format) - #datetime(day: 12, month: 6, year: 2026).display(date-format)) --- Participant
     == Past
+    - *VUB-Leeds Algebra School* #conf-link("https://vubleedstopyb.github.io/summer-school/index.html") (#datetime(day: 8, month: 6, year: 2026).display(date-format) - #datetime(day: 12, month: 6, year: 2026).display(date-format)) --- Participant
     - *ITMAIA 2026, Leeds* #conf-link("https://sites.google.com/view/itmaia2026/home") (#datetime(day: 15, month: 04, year: 2026).display(date-format) - #datetime(day: 17, month: 04, year: 2026).display(date-format)) --- Talk: "Generating a C\*-algebra"
     - *MPI-MIS Leipzig* #conf-link("https://www.mis.mpg.de/geometry-groups-dynamics") (#datetime(day: 12, month: 1, year: 2026).display(date-format) - #datetime(day: 16, month: 1, year: 2026).display(date-format)) --- Research visit and talk in Geometry seminar
     - *CARE 2025, Lyon* #conf-link("https://sites.google.com/uniroma1.it/caremath/home-page") (#datetime(day: 27, month: 10, year: 2025).display(date-format) - #datetime(day: 31, month: 10, year: 2025).display(date-format)) --- Talk: "Cluster algebras from the perspective of operator algebras"
