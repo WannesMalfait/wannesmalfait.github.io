@@ -17,19 +17,49 @@
   #html.article[
     #title[*Wannes* Malfait]
 
-    #image("./assets/prof_pic.png", width: 300pt, height: 300pt, alt: "A simple sketch of myself")
+    #image(
+      "./assets/prof_pic.png",
+      width: 300pt,
+      height: 300pt,
+      alt: "A simple sketch of myself",
+    )
     = About me
 
-    Hi! I'm Wannes, a PhD student in mathematics at the VUB. Besides mathematics, I'm interested in music, chess, programming, reading, ultimate frisbee, and more. You can navigate to relevant pages using the links at the top of the website.
+    Hi! I'm Wannes, a PhD student in mathematics at the VUB. Besides
+    mathematics, I'm interested in music, chess, programming, reading, ultimate
+    frisbee, and more. You can navigate to relevant pages using the links at the
+    top of the website.
 
     Let me say a bit more about each of the interests listed above:
 
-    - *Mathematics.* My interests vary quite a bit, but category theory, algebra, functional analysis, and representation theory are the main ones. I'm currently working on cluster algebras, positive representations and quantum groups.
-    - *Music.* I like listening to soundtracks of films or games. Favorites include the soundtracks of Interstellar, The Octopath Traveller, Celeste,  and Ori and the Will of the Wisps. I am somewhat capable at playing the clarinet (classical music not jazz).
-    - *Chess.* I have liked playing chess since I was a kid, but have only played in a club for a few years. You can challenge me on #link("https://lichess.org/@/Boris-Beauty-Gelfand", [lichess]). I don't play that much, but I do keep up to date with the latest chess news, and chess engine news.
-    - *Programming.* This is one of my biggest hobbies. I have enough projects in my backlog to keep me busy full time. A big part of my free time is spent contributing to #link("https://www.blender.org", [Blender]): to the main source code, and to some add-ons that I created. Other than that, I am interested in chess engines and, more generally, using computers to analyze board games.
-    - *Reading.* My favorite genres are definitely fantasy and science fiction. Some of my favorite series include: The Wheel of Time, The Stormlight Archive, Dune, The Farseer trilogy, The Ranger's Apprentice and Ender's Game.
-    - *Ultimate Frisbee*. My first introduction to this sport was in high school, where we played with a few friends after school. I now play in a small club in Brussels. The positive attitude and spirit of the players is something you don't find in many other sports.
+    - *Mathematics.* My interests vary quite a bit, but category theory,
+      algebra, functional analysis, and representation theory are the main ones.
+      I'm currently working on cluster algebras, positive representations and
+      quantum groups.
+    - *Music.* I like listening to soundtracks of films or games. Favorites
+      include the soundtracks of Interstellar, The Octopath Traveller, Celeste,
+      and Ori and the Will of the Wisps. I am somewhat capable at playing the
+      clarinet (classical music not jazz).
+    - *Chess.* I have liked playing chess since I was a kid, but have only
+      played in a club for a few years. You can challenge me on #link(
+        "https://lichess.org/@/Boris-Beauty-Gelfand",
+        [lichess],
+      ). I don't play that much, but I do keep up to date with the latest chess
+      news, and chess engine news.
+    - *Programming.* This is one of my biggest hobbies. I have enough projects
+      in my backlog to keep me busy full time. A big part of my free time is
+      spent contributing to #link("https://www.blender.org", [Blender]): to the
+      main source code, and to some add-ons that I created. Other than that, I
+      am interested in chess engines and, more generally, using computers to
+      analyze board games.
+    - *Reading.* My favorite genres are definitely fantasy and science fiction.
+      Some of my favorite series include: The Wheel of Time, The Stormlight
+      Archive, Dune, The Farseer trilogy, The Ranger's Apprentice and Ender's
+      Game.
+    - *Ultimate Frisbee*. My first introduction to this sport was in high
+      school, where we played with a few friends after school. I now play in a
+      small club in Brussels. The positive attitude and spirit of the players is
+      something you don't find in many other sports.
 
     = Where to find me <where>
 
@@ -46,25 +76,76 @@
     #let date-format = "[day]/[month]/[year]"
     #let conf-link(linkstr) = [#sym.dot #link(linkstr)[link] #sym.dot]
     == Upcoming
-    - *Arbre De Noël de la Géometrie Non-Commutative* #conf-link("https://indico.math.cnrs.fr/event/17004/") (#datetime(day: 12, month: 10, year: 2026).display(date-format) - #datetime(day: 14, month: 10, year: 2026).display(date-format)) --- Speaker
+    - *Arbre De Noël de la Géometrie Non-Commutative* #conf-link(
+        "https://indico.math.cnrs.fr/event/17004/",
+      ) (#datetime(day: 12, month: 10, year: 2026).display(date-format) -
+      #datetime(day: 14, month: 10, year: 2026).display(date-format)) ---
+      Speaker
     == Past
-    - *Mathematics for Industry 2026* #conf-link("https://be-maths-in.be/mfi26/") (#datetime(day: 7, month: 9, year: 2026).display(date-format) - #datetime(day: 11, month: 9, year: 2026).display(date-format)) --- Participant
-    - *VUB-Leeds Algebra School* #conf-link("https://vubleedstopyb.github.io/summer-school/index.html") (#datetime(day: 8, month: 6, year: 2026).display(date-format) - #datetime(day: 12, month: 6, year: 2026).display(date-format)) --- Participant
-    - *ITMAIA 2026, Leeds* #conf-link("https://sites.google.com/view/itmaia2026/home") (#datetime(day: 15, month: 04, year: 2026).display(date-format) - #datetime(day: 17, month: 04, year: 2026).display(date-format)) --- Talk: "Generating a C\*-algebra"
-    - *MPI-MIS Leipzig* #conf-link("https://www.mis.mpg.de/geometry-groups-dynamics") (#datetime(day: 12, month: 1, year: 2026).display(date-format) - #datetime(day: 16, month: 1, year: 2026).display(date-format)) --- Research visit and talk in Geometry seminar
-    - *CARE 2025, Lyon* #conf-link("https://sites.google.com/uniroma1.it/caremath/home-page") (#datetime(day: 27, month: 10, year: 2025).display(date-format) - #datetime(day: 31, month: 10, year: 2025).display(date-format)) --- Talk: "Cluster algebras from the perspective of operator algebras"
-    - *CAMP in the Lakes, Ambleside* #conf-link("https://sites.google.com/view/campinthelakes") (#datetime(day: 14, month: 7, year: 2025).display(date-format) - #datetime(day: 23, month: 7, year: 2025).display(date-format)) --- Participant
-    - *Cluster Geometry, Nordfjordeid* #conf-link("https://www.mn.uio.no/math/english/research/groups/algebra/events/conferences/nordfjordeid2025/") (#datetime(day: 9, month: 6, year: 2025).display(date-format) - #datetime(day: 13, month: 6, year: 2025).display(date-format)) --- Participant
-    - *Algebra Days 2025, Caen* #conf-link("https://mdpressland.github.io/events/AlgebraDays25.html") (#datetime(day: 18, month: 3, year: 2025).display(date-format) - #datetime(day: 19, month: 3, year: 2025).display(date-format)) --- Participant
-    - *Higher structures in Noncommutative Geometry and Quantum Algebra, Lille* #conf-link("https://www.mathconf.org/hsngqa2024") (#datetime(day: 8, month: 10, year: 2024).display(date-format) - #datetime(day: 11, month: 10, year: 2024).display(date-format)) --- Participant
+    - *Mathematics for Industry 2026* #conf-link(
+        "https://be-maths-in.be/mfi26/",
+      ) (#datetime(day: 7, month: 9, year: 2026).display(date-format) -
+      #datetime(day: 11, month: 9, year: 2026).display(date-format)) ---
+      Participant
+    - *VUB-Leeds Algebra School* #conf-link(
+        "https://vubleedstopyb.github.io/summer-school/index.html",
+      ) (#datetime(day: 8, month: 6, year: 2026).display(date-format) -
+      #datetime(day: 12, month: 6, year: 2026).display(date-format)) ---
+      Participant
+    - *ITMAIA 2026, Leeds* #conf-link(
+        "https://sites.google.com/view/itmaia2026/home",
+      ) (#datetime(day: 15, month: 04, year: 2026).display(date-format) -
+      #datetime(day: 17, month: 04, year: 2026).display(date-format)) --- Talk:
+      "Generating a C\*-algebra"
+    - *MPI-MIS Leipzig* #conf-link(
+        "https://www.mis.mpg.de/geometry-groups-dynamics",
+      ) (#datetime(day: 12, month: 1, year: 2026).display(date-format) -
+      #datetime(day: 16, month: 1, year: 2026).display(date-format)) ---
+      Research visit and talk in Geometry seminar
+    - *CARE 2025, Lyon* #conf-link(
+        "https://sites.google.com/uniroma1.it/caremath/home-page",
+      ) (#datetime(day: 27, month: 10, year: 2025).display(date-format) -
+      #datetime(day: 31, month: 10, year: 2025).display(date-format)) --- Talk:
+      "Cluster algebras from the perspective of operator algebras"
+    - *CAMP in the Lakes, Ambleside* #conf-link(
+        "https://sites.google.com/view/campinthelakes",
+      ) (#datetime(day: 14, month: 7, year: 2025).display(date-format) -
+      #datetime(day: 23, month: 7, year: 2025).display(date-format)) ---
+      Participant
+    - *Cluster Geometry, Nordfjordeid* #conf-link(
+        "https://www.mn.uio.no/math/english/research/groups/algebra/events/conferences/nordfjordeid2025/",
+      ) (#datetime(day: 9, month: 6, year: 2025).display(date-format) -
+      #datetime(day: 13, month: 6, year: 2025).display(date-format)) ---
+      Participant
+    - *Algebra Days 2025, Caen* #conf-link(
+        "https://mdpressland.github.io/events/AlgebraDays25.html",
+      ) (#datetime(day: 18, month: 3, year: 2025).display(date-format) -
+      #datetime(day: 19, month: 3, year: 2025).display(date-format)) ---
+      Participant
+    - *Higher structures in Noncommutative Geometry and Quantum Algebra, Lille*
+      #conf-link("https://www.mathconf.org/hsngqa2024") (#datetime(
+        day: 8,
+        month: 10,
+        year: 2024,
+      ).display(date-format) - #datetime(
+        day: 11,
+        month: 10,
+        year: 2024,
+      ).display(date-format)) --- Participant
 
     = Preprints <preprints>
-    - Haar measure for totally positive split real semisimple quantum groups of classical type: #link("https://arxiv.org/abs/2610.13213")<preprints:haar_measure_classical>
+    - Haar measure for totally positive split real semisimple quantum groups of
+      classical type: #link(
+        "https://arxiv.org/abs/2610.13213",
+      )<preprints:haar_measure_classical>
 
     = News <news>
-    - *October 12, 2026*: My first #link(<preprints:haar_measure_classical>)[preprint]
+    - *October 12, 2026*: My first #link(
+        <preprints:haar_measure_classical>,
+      )[preprint]
     - *November 1, 2024*: Started my PhD
-    - *May 21, 2024*: #link(<news:finished_thesis>)[Submitted my Master's thesis]
+    - *May 21, 2024*: #link(<news:finished_thesis>)[Submitted my Master's
+        thesis]
     - *Feb 17, 2024*: I created a website
 
     = Contact info <links>
@@ -72,7 +153,10 @@
     - #emoji.email #link("mailto:wannes.malfait@vub.be")[E-mail]
     - #link("https://orcid.org/0009-0009-2626-7356")[ORCID]
     - #link("https://github.com/wannesmalfait")[GitHub]
-    - #html.elem("a", attrs: (href: "https://mathstodon.xyz/@WannesMalfait", rel: "me"))[Mathstodon]
+    - #html.elem("a", attrs: (
+        href: "https://mathstodon.xyz/@WannesMalfait",
+        rel: "me",
+      ))[Mathstodon]
     - #link("https://youtube.com/@WannesMalfait")[YouTube]
 
     #html.elem("p", attrs: (style: "margin-top:20cm;"))[
@@ -103,8 +187,10 @@
     #title()
     = Latest posts
     - *May 16, 2026*: #link(<blog:blender-wild>)[Linking blender with wild]
-    - *Jun 05, 2024*: #link(<blog:parallel-primes>)[Computing prime numbers in parallel]
-    - *Mar 16, 2024*: #link(<blog:github-latex-ci>)[LaTeX compilation with GitHub actions]
+    - *Jun 05, 2024*: #link(<blog:parallel-primes>)[Computing prime numbers in
+        parallel]
+    - *Mar 16, 2024*: #link(<blog:github-latex-ci>)[LaTeX compilation with
+        GitHub actions]
   ]
 ]<blog>
 
@@ -126,13 +212,19 @@
   )
 ]<blog:blender-wild>
 
-#document("/blog/2024/parallel-primes.html", title: "Computing prime numbers in parallel")[
+#document(
+  "/blog/2024/parallel-primes.html",
+  title: "Computing prime numbers in parallel",
+)[
   #blog-template(
     include "./_posts/2024-06-05-parallel-primes.typ",
   )
 ]<blog:parallel-primes>
 
-#document("/blog/2024/github-latex-ci.html", title: "LaTeX compilation with GitHub actions")[
+#document(
+  "/blog/2024/github-latex-ci.html",
+  title: "LaTeX compilation with GitHub actions",
+)[
   #blog-template(
     include "./_posts/2024-03-16-github-latex-ci.typ",
   )

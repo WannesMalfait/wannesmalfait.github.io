@@ -1,12 +1,19 @@
 == The problem statement
 
-Given an integer $n$, the goal is to compute all the prime numbers less than or equal to $n$.
+Given an integer $n$, the goal is to compute all the prime numbers less than or
+equal to $n$.
 
-Most programmers have probably written a program to do exactly this at least once in their life. I recently needed this for #link("https://github.com/WannesMalfait/prime-sum-sequences")[a program] I was writing to compute “prime sum sequences”: permutations of the numbers $1$ to $n$ such that the sum of two consecutive numbers is always a prime, e.g., $1,4,3,2,5,6$.
+Most programmers have probably written a program to do exactly this at least
+once in their life. I recently needed this for #link(
+  "https://github.com/WannesMalfait/prime-sum-sequences",
+)[a program] I was writing to compute “prime sum sequences”: permutations of the
+numbers $1$ to $n$ such that the sum of two consecutive numbers is always a
+prime, e.g., $1,4,3,2,5,6$.
 
 == The solution
 
-We will be writing all the code in rust, because I like writing things in rust, and because it is easy to write high-performance parallel code in.
+We will be writing all the code in rust, because I like writing things in rust,
+and because it is easy to write high-performance parallel code in.
 
 === A naive implementation
 
@@ -20,7 +27,11 @@ fn compute_primes(n: usize) -> Vec<usize> {
 }
 ```
 
-We make heavy use of iterators here. The code almost reads like the definition of a prime number: A number $i > 1$ is prime, if it has no non-trivial divisors, i.e., for all $j in {2, 3, dots, i -1 }$, the number $j$ does not divide $i$. For those less familiar with iterators, here is a version with classic for loops:
+We make heavy use of iterators here. The code almost reads like the definition
+of a prime number: A number $i > 1$ is prime, if it has no non-trivial divisors,
+i.e., for all $j in {2, 3, dots, i -1 }$, the number $j$ does not divide $i$.
+For those less familiar with iterators, here is a version with classic for
+loops:
 
 ```rust
 fn compute_primes(n: usize) -> Vec<usize> {
@@ -41,7 +52,8 @@ fn compute_primes(n: usize) -> Vec<usize> {
 }
 ```
 
-Let us now clean this up a bit by splitting the primality check into a separate function:
+Let us now clean this up a bit by splitting the primality check into a separate
+function:
 
 ```rust
 fn is_prime(n: &usize) -> bool {
@@ -67,15 +79,20 @@ fn compute_primes(n: usize) -> Vec<usize> {
 }
 ```
 
-That is quite elegant and neat. We can still speed this up by a lot, because we are doing a lot of redundant work.
+That is quite elegant and neat. We can still speed this up by a lot, because we
+are doing a lot of redundant work.
 
 === Removing redundant checks
 
-Observe that if $n = a dot b$, then either $a lt.eq sqrt(n)$ or $b lt.eq sqrt(n)$. Indeed, otherwise we would have $a > sqrt(n)$ and $b > sqrt(n)$ from which
+Observe that if $n = a dot b$, then either $a lt.eq sqrt(n)$ or
+$b lt.eq sqrt(n)$. Indeed, otherwise we would have $a > sqrt(n)$ and
+$b > sqrt(n)$ from which
 $
   n = a dot b > sqrt(n) dot sqrt(n) = n,
 $
-a contradiction. So, it suffices to check for divisors less than the square root of $n$. Alternatively, one can check that the square of the divisor is less than $n$. To avoid potential overflows we use a saturated multiplication:
+a contradiction. So, it suffices to check for divisors less than the square root
+of $n$. Alternatively, one can check that the square of the divisor is less than
+$n$. To avoid potential overflows we use a saturated multiplication:
 
 ```rust
 fn is_prime(n: &usize) -> bool {
@@ -86,9 +103,13 @@ fn is_prime(n: &usize) -> bool {
 }
 ```
 
-Note that this is a big reduction in complexity, e.g., to check if 1000 is prime we now only need to check 31 numbers, instead of 1000.
+Note that this is a big reduction in complexity, e.g., to check if 1000 is prime
+we now only need to check 31 numbers, instead of 1000.
 
-The next observation is that we only need to check if the number is divisible by prime numbers, since every number is a product of prime numbers. However, to implement this, we already need a list of prime numbers! Luckily we can get around this:
+The next observation is that we only need to check if the number is divisible by
+prime numbers, since every number is a product of prime numbers. However, to
+implement this, we already need a list of prime numbers! Luckily we can get
+around this:
 
 ```rust
 // `primes` should contain at least all primes less than sqrt(n).
@@ -112,19 +133,33 @@ fn compute_primes(n: usize) -> Vec<usize> {
 }
 ```
 
-The good news is that this also gives a nice reduction in complexity. One can show that the number of primes less than $n$ is approximately $n / (ln(n))$, where $ln$ denotes the natural logarithm. So we have gone from $O(n)$ to $O(sqrt(n))$ to
+The good news is that this also gives a nice reduction in complexity. One can
+show that the number of primes less than $n$ is approximately $n / (ln(n))$,
+where $ln$ denotes the natural logarithm. So we have gone from $O(n)$ to
+$O(sqrt(n))$ to
 $
   O(frac(sqrt(n), ln(sqrt(n)))) = O(2 dot frac(sqrt(n), ln(n))) = O((sqrt(n))/(ln(n))).
 $
-Concretely, from checking 1000 numbers, to checking 30 numbers, to checking just 11. For 10000, we go to 100 and then down to 25. That is quite the reduction!
+Concretely, from checking 1000 numbers, to checking 30 numbers, to checking
+just 11. For 10000, we go to 100 and then down to 25. That is quite the
+reduction!
 
-The bad news is that we have lost our parallel iterator. We will now see how we can get it back.
+The bad news is that we have lost our parallel iterator. We will now see how we
+can get it back.
 
 === Back to parallelism
 
-The main issue is that our main loop has gone from a parallel loop to a sequential one. Previously, the `is_prime` function only depended on the current number in the loop. Now, `is_prime` also depends on the already computed list of primes. Thus, `is_prime(n+1)` can only be computed after `is_prime(n)` has been computed. This prevents a simple parallelization of the loop.
+The main issue is that our main loop has gone from a parallel loop to a
+sequential one. Previously, the `is_prime` function only depended on the current
+number in the loop. Now, `is_prime` also depends on the already computed list of
+primes. Thus, `is_prime(n+1)` can only be computed after `is_prime(n)` has been
+computed. This prevents a simple parallelization of the loop.
 
-The key insight is that we don't actually need to know all the primes up to $n$ to compute `is_prime(n)`. As we already observed, we only need to know the primes up to $sqrt(n)$. For example, if we already know the primes up to 100, we can safely compute all the primes up to $100^2 = 10000$ using the list of primes up to 100. This gives the final algorithm:
+The key insight is that we don't actually need to know all the primes up to $n$
+to compute `is_prime(n)`. As we already observed, we only need to know the
+primes up to $sqrt(n)$. For example, if we already know the primes up to 100, we
+can safely compute all the primes up to $100^2 = 10000$ using the list of primes
+up to 100. This gives the final algorithm:
 
 ```rust
 use rayon::prelude::*;
@@ -171,14 +206,25 @@ fn compute_primes(n: usize) -> Vec<usize> {
 }
 ```
 
-For my laptop with 8 threads, this parallel version was around 6 times faster than the single-threaded version. This indicates that the parallelism works quite well.
+For my laptop with 8 threads, this parallel version was around 6 times faster
+than the single-threaded version. This indicates that the parallelism works
+quite well.
 
 == Closing remarks
 
-The final algorithm as it is written is not fully optimized. Things that could be added include:
+The final algorithm as it is written is not fully optimized. Things that could
+be added include:
 
-- Only iterate over odd numbers. This seems like it halves execution time, but in reality doesn't make a big difference. The reason is that being even is always the first thing being checked in `is_prime`, so skipping over even numbers only skips numbers that would be rejected quickly anyway.
-- Allocate space for the `primes` vector ahead of time using the $n / ln(n)$ approximation for its size. This might give a minor improvement in speed.
-- Choose an `initial_cutoff` value depending on the number of threads. The value I picked is somewhat arbitrary, but seemed to work well on my laptop.
+- Only iterate over odd numbers. This seems like it halves execution time, but
+  in reality doesn't make a big difference. The reason is that being even is
+  always the first thing being checked in `is_prime`, so skipping over even
+  numbers only skips numbers that would be rejected quickly anyway.
+- Allocate space for the `primes` vector ahead of time using the $n / ln(n)$
+  approximation for its size. This might give a minor improvement in speed.
+- Choose an `initial_cutoff` value depending on the number of threads. The value
+  I picked is somewhat arbitrary, but seemed to work well on my laptop.
 
-I decided to make this blog post because I couldn't find any decent parallel prime generating functions when I searched for it online. After thinking about it a bit myself, I ended up with the above algorithm and then made this blog post, so others can use it too. Over all, I am quite pleased with the result.
+I decided to make this blog post because I couldn't find any decent parallel
+prime generating functions when I searched for it online. After thinking about
+it a bit myself, I ended up with the above algorithm and then made this blog
+post, so others can use it too. Over all, I am quite pleased with the result.
