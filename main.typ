@@ -6,6 +6,8 @@
     #sym.dot
     #link(<where>)[Where to find me]
     #sym.dot
+    #link(<preprints>)[Preprints]
+    #sym.dot
     #link(<news>)[News]
 
     #link(<blog>)[Go to blog]
@@ -55,7 +57,11 @@
     - *Algebra Days 2025, Caen* #conf-link("https://mdpressland.github.io/events/AlgebraDays25.html") (#datetime(day: 18, month: 3, year: 2025).display(date-format) - #datetime(day: 19, month: 3, year: 2025).display(date-format)) --- Participant
     - *Higher structures in Noncommutative Geometry and Quantum Algebra, Lille* #conf-link("https://www.mathconf.org/hsngqa2024") (#datetime(day: 8, month: 10, year: 2024).display(date-format) - #datetime(day: 11, month: 10, year: 2024).display(date-format)) --- Participant
 
+    = Preprints <preprints>
+    - Haar measure for totally positive split real semisimple quantum groups of classical type: #link("https://arxiv.org/abs/2610.13213")<preprints:haar_measure_classical>
+
     = News <news>
+    - *October 12, 2026*: My first #link(<preprints:haar_measure_classical>)[preprint]
     - *November 1, 2024*: Started my PhD
     - *May 21, 2024*: #link(<news:finished_thesis>)[Submitted my Master's thesis]
     - *Feb 17, 2024*: I created a website
