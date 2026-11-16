@@ -76,12 +76,12 @@
     #let date-format = "[day]/[month]/[year]"
     #let conf-link(linkstr) = [#sym.dot #link(linkstr)[link] #sym.dot]
     == Upcoming
+    == Past
     - *Arbre De Noël de la Géometrie Non-Commutative* #conf-link(
         "https://indico.math.cnrs.fr/event/17004/",
       ) (#datetime(day: 12, month: 10, year: 2026).display(date-format) -
       #datetime(day: 14, month: 10, year: 2026).display(date-format)) ---
       Speaker
-    == Past
     - *Mathematics for Industry 2026* #conf-link(
         "https://be-maths-in.be/mfi26/",
       ) (#datetime(day: 7, month: 9, year: 2026).display(date-format) -
